@@ -23,7 +23,7 @@ app.use('/auth', authRoutes)
 app.use('/family', familyRoutes)
 app.use('/users', usersRoutes)
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3030
 
 app.listen(PORT, ()=>{
     console.log('O servidor está rodando na porta ', PORT)

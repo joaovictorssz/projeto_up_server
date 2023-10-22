@@ -18,6 +18,9 @@ const profileSchema = new Schema({
     auditor:{
         type: Boolean,
         required: true
+    },
+    qtd_cadastros:{
+        type: Number
     }
 })
 

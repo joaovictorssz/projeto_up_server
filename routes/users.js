@@ -11,6 +11,17 @@ router.get('/list', async (req, res)=>{
     return res.json(users)
 })
 
+//Listar poor ID
+
+router.get('/list/:id', async (req, res)=>{
+
+    const user = await Profile.findById(req.params.id)
+    if(!user){
+        return res.status(400).json({message: 'Usuário não encontrado'})
+    }
+    return res.json(user)
+})
+
 //Deletar um usuário
 router.delete('/delete/:id', async (req, res)=>{
     try{

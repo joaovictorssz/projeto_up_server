@@ -25,6 +25,7 @@ router.post('/register', async (req, res)=>{
         'dados_pessoais.endereco': req.body.dados_pessoais.endereco, 
         'dados_pessoais.bairro': req.body.dados_pessoais.bairro, 
         'dados_pessoais.numero': req.body.dados_pessoais.numero, 
+        
     })
 
     if(!adressAlreadyExists){
@@ -32,7 +33,10 @@ router.post('/register', async (req, res)=>{
             composicao_familiar: req.body.composicao_familiar, 
             dados_moradia: req.body.dados_moradia,
             dados_pessoais: req.body.dados_pessoais,
-            situacao_economica_familiar: req.body.situacao_economica_familiar
+            situacao_economica_familiar: req.body.situacao_economica_familiar,
+            cadastrado_por: req.body.cadastrado_por,
+            data_de_cadastro: req.body.data_de_cadastro,
+            id_voluntario: req.body.id_voluntario
         })
 
         const addedFamily = await newFamily.save()

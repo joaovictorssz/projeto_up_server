@@ -16,7 +16,7 @@ const dadosPessoaisSchema = new Schema({
          type: String
      },
      idade:{
-         type: Number
+         type: String
      },
      natural_de:{
          type: String
@@ -93,7 +93,7 @@ const composicaoFamiliarSchema = new Schema({
          type: String
     },
     idade:{
-         type: Number
+         type: String
     },
     sexo:{
          type: String
@@ -113,7 +113,10 @@ const familiaSchema = new Schema({
     dados_pessoais: dadosPessoaisSchema,
     dados_moradia: dadosMoradiaSchema,
     situacao_economica_familiar: situacaoEconomicaFamiliarSchema,
-    composicao_familiar: [composicaoFamiliarSchema]
+    composicao_familiar: [composicaoFamiliarSchema],
+    cadastrado_por: String,
+    data_de_cadastro: String,
+    id_voluntario: String
 })
 
 const Familia = mongoose.model('Familia', familiaSchema)

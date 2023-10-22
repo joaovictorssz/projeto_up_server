@@ -33,14 +33,14 @@ router.post('/register',async (req, res) => {
         return res.status(400).json({message: "E-mail já cadastrado anteriormente"})
     }
 
-    const newProfile = new Profile({email, username, password: hashedPassword, auditor: false})
+    const newProfile = new Profile({email, username, password: hashedPassword, auditor: false, qtd_cadastros: 0})
     const createdProfile = await newProfile.save()
   
     if(!createdProfile){
         res.status(500).json({message: "Erro ao cadastrar usuário"})
     }
     else{
-        res.json(createdProfile)
+        res.status(200).json(createdProfile)
     }
 
 })
