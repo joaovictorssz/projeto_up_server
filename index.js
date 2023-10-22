@@ -14,11 +14,6 @@ const session = require('express-session')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
-app.use(session({
-    secret: 'lulu',
-    resave: false,
-    saveUnitialized: true
-}))
 app.use('/auth', authRoutes)
 app.use('/family', familyRoutes)
 app.use('/users', usersRoutes)
