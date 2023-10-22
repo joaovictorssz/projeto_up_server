@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect('mongodb://0.0.0.0:27017/projeto_up')
+mongoose.connect(process.env.MONGO_URI)
 
 const db = mongoose.connection
 db.on("error", ()=>console.error.bind(console, 'Erro na conexão com o MongoDB'))
