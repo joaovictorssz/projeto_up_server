@@ -36,7 +36,8 @@ router.post('/register', async (req, res)=>{
             situacao_economica_familiar: req.body.situacao_economica_familiar,
             cadastrado_por: req.body.cadastrado_por,
             data_de_cadastro: req.body.data_de_cadastro,
-            id_voluntario: req.body.id_voluntario
+            id_voluntario: req.body.id_voluntario,
+            cestas_entregues: req.body.cestas_entregues
         })
 
         const addedFamily = await newFamily.save()

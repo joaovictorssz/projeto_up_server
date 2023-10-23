@@ -109,6 +109,16 @@ const composicaoFamiliarSchema = new Schema({
     },
 })
 
+const cestasEntregues = new Schema({
+    data_de_entrega: {
+        type: String
+    },
+    voluntario: {
+        type: String
+    }
+
+})
+
 const familiaSchema = new Schema({
     dados_pessoais: dadosPessoaisSchema,
     dados_moradia: dadosMoradiaSchema,
@@ -116,7 +126,8 @@ const familiaSchema = new Schema({
     composicao_familiar: [composicaoFamiliarSchema],
     cadastrado_por: String,
     data_de_cadastro: String,
-    id_voluntario: String
+    id_voluntario: String,
+    cestas_entregues: [cestasEntregues]
 })
 
 const Familia = mongoose.model('Familia', familiaSchema)
