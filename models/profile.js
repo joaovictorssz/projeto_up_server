@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Familia = require('./family')
 const Schema = mongoose.Schema
 
 const profileSchema = new Schema({

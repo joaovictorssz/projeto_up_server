@@ -18,6 +18,17 @@ router.get('/list/:id', async (req, res)=>{
     return res.json(family)
 })
 
+//Listar por usuário
+
+router.get('/list/user/:id', async (req, res)=>{
+
+    const families = await Familia.find({id_voluntario: req.params.id})
+    if(!families){
+        return res.status(400).json({message: 'Familia não encontrada'})
+    }
+    return res.send(families)
+})
+
 //Adicionar
 router.post('/register', async (req, res)=>{
 
@@ -25,6 +36,7 @@ router.post('/register', async (req, res)=>{
         'dados_pessoais.endereco': req.body.dados_pessoais.endereco, 
         'dados_pessoais.bairro': req.body.dados_pessoais.bairro, 
         'dados_pessoais.numero': req.body.dados_pessoais.numero, 
+        'dados_pessoais.cpf': req.body.dados_pessoais.cpf
         
     })
 
@@ -37,7 +49,8 @@ router.post('/register', async (req, res)=>{
             cadastrado_por: req.body.cadastrado_por,
             data_de_cadastro: req.body.data_de_cadastro,
             id_voluntario: req.body.id_voluntario,
-            cestas_entregues: req.body.cestas_entregues
+            cestas_entregues: req.body.cestas_entregues,
+            observacoes: req.body.observacoes
         })
 
         const addedFamily = await newFamily.save()
@@ -50,7 +63,7 @@ router.post('/register', async (req, res)=>{
         }
     }
     else{
-        return res.status(500).json({message: "Endereco já cadastrado"})
+        return res.status(500).json({message: "Dados já cadastrados"})
     }
 
 })

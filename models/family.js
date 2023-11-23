@@ -6,8 +6,9 @@ const dadosPessoaisSchema = new Schema({
          type: String,
          required: true
      },
-     nome_social: {
+     cpf: {
          type: String,
+         required: true
      },
      sexo: {
          type: String,
@@ -42,13 +43,7 @@ const dadosPessoaisSchema = new Schema({
      telefone_1:{
          type: String,
          required: true
-     },
-     telefone_2:{
-         type: String
-     },
-     email:{
-         type: String
-     },
+     }
 })
 
 const dadosMoradiaSchema = new Schema({
@@ -84,6 +79,9 @@ const situacaoEconomicaFamiliarSchema = new Schema({
     },
     renda_recebida: {
         type:  String
+    },
+    auxilio_do_governo:{
+        type: String
     }
 })
 
@@ -126,7 +124,8 @@ const familiaSchema = new Schema({
     cadastrado_por: String,
     data_de_cadastro: String,
     id_voluntario: String,
-    cestas_entregues: [cestasEntregues]
+    cestas_entregues: [cestasEntregues],
+    observacoes:  String
 })
 
 const Familia = mongoose.model('Familia', familiaSchema)
